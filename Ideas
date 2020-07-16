@@ -1,0 +1,45 @@
+
+  
+Servidor del IIEG -> Red Camaras (IP)-> Técnica ¿Sustracción de fondo? -> FOTOGRAMAS CON OPENCV 
+  - Colgar el algoritmo junto al video al mismo tiempo
+  
+  VENTAJAS
+  - C1 usa det. de movimiento con notificación en Software Cliente y acceso remoto por Internet Explorer y Software Cliente.
+  - 
+
+**¿Como sacar la foto de la camara?** Fotos cada milisegundo 
+  Enviar con REST a PRIMER FILTRO .PY (haardcascade) -> verificar sí -> ¿Contiene cara? "Si, pasa." - "No, bye." (JavaScript - JSON?) 
+    -> SÍ Y SOLO SÍ PASA ACTIVA MODULO DE IDENTIFICACIÓN
+
+WEB - Diseño web - Plantilla 
+  *subir las carpetas de PD -> Interfaz admin -> MODULO DE ENTRENAMIENTO -> AMPLIA DATASET DE FICHEROS //FULANO_1.JPG//
+  *MODULO DE IDENTIFICACIÓN -> activa MODULO envio de correo
+  *mandar correo cuando se active la bandera de parentesco
+      **¿En que momento mandamos el correo? (95% parentesco)**
+      
+      
+//modulos
+  
+    - ENTRENAMIENTO
+    - PRIMER FILTRO
+    - IDENTIFICACIÓN
+    - CORREO
+
+Obtener señal de video de las cámaras por medio de RTSP -> ¿procesamiento en paralelo? -> ¿instancias separadas por cada cámara?
+RTSP nomenclatura ejemplo: rtsp://USUARIO:PASSWORD@IP:PORT/(h264/MPEG-4)/ch(CANAL)/(main/sub)/av_stream
+
+Comprobar la conectividad de RTSP con Python y OpenCv -> En el archivo de detección de rostro.py, cambiar la webcam por RTSP -> ¿funciona?
+ ***solucion opencv 2.4.9 https://medium.com/@nhancv/opencv-python-connect-to-android-camera-via-rstp-9eb78e2903d5:
+`vcap = cv.VideoCapture("rtsp://192.168.1.2:8080/out.h264")
+
+while(1):
+
+    ret, frame = vcap.read()
+    cv.imshow('VIDEO', frame)
+    cv.waitKey(1)`
+
+El servidor de detencción de rostros, debe estar todo el tiempo procesando el video -> el video se guarda -> Guarda solo cuando detecta un rostro
+
+NVR sistema de alarmas (detección de movimiento), ¿cómo funciona? -> capturar el evento lanzado por el NVR y utilizarlo para activar el servidor de detección de rostros -> ¿funciona? -> ahorra tiempo de procesamiento innecesario
+
+Elaborar una tabla con cada IP de cada cámara y su Geolocalización -> cuando se encuentre una coincidencia de persona desaparecida, obtener la Geolocalización por medio de la base de datos
